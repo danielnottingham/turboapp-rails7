@@ -1,13 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green" id="notice">
+  <%= notice %>
+</p>
 
-<h1>Messages</h1>
+<h1>
+  Messages
+  <span id="message_counter">
+    <%= Message.count %>
+  </span>
+</h1>
 
+<div id="new_message">
+  <%= render partial: 'messages/form', locals: { message: Message.new } %>
+</div>
+
+<br>
 <div id="messages">
   <% @messages.each do |message| %>
     <%= render message %>
-    <p>
-      <%= link_to "Show this message", message %>
-    </p>
   <% end %>
 </div>
 
